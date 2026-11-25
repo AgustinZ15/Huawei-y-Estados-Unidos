@@ -1,0 +1,489 @@
+/* Variables de color y estilo para el tema claro */
+:root {
+  color-scheme: light;
+  --tinta: #172338;
+  --apagado: #526174;
+  --papel: #f5f7fb;
+  --superficie: #fff;
+  --marca: #174ea6;
+  --marca-oscura: #10366f;
+  --acento: #d84a32;
+  --linea: #d9e0ea;
+  --sombra: 0 12px 32px rgb(23 35 56 / 9%);
+} 
+
+/* Aplicar box-sizing: border-box a todos los elementos para un mejor control del tamaño y el espaciado */
+* { box-sizing: border-box; } 
+
+/* Hacer que el desplazamiento sea suave al hacer clic en enlaces internos */
+html { scroll-behavior: smooth; } 
+
+/* Estilos generales para el cuerpo de la página, incluyendo márgenes, color de fondo, color de texto y fuente */
+body {
+  margin: 0;
+  background: var(--papel);
+  color: var(--tinta);
+  font: 1rem/1.65 system-ui, -apple-system, "Segoe UI", sans-serif;
+} 
+
+/* Estilo para los enlaces, estableciendo el color de los enlaces al color de la marca */
+a { color: var(--marca); }
+
+/* Estilo para los enlaces al pasar el cursor sobre ellos, cambiando el color al color de la marca más oscuro */
+a:hover { color: var(--marca-oscura); }
+
+/* Estilo para el enlace de salto, estableciendo la posición, color de fondo, color de texto, relleno, radio del borde y ocultando el elemento fuera de la pantalla */
+.skip-link {
+  position: absolute;
+  z-index: 10;
+  top: 0.5rem;
+  left: 0.5rem;
+  padding: 0.6rem 1rem;
+  transform: translateY(-160%);
+  border-radius: 0.4rem;
+  background: var(--tinta);
+  color: #fff;
+}
+.skip-link:focus { transform: translateY(0); }
+
+
+/* Estilo para las imágenes, asegurando que se muestren como bloques y no excedan el ancho del contenedor */
+img { display: block; max-width: 100%; }
+
+/* Estilo para los elementos enfocados, agregando un contorno visible para mejorar la accesibilidad */
+:focus-visible { outline: 3px solid #f2a900; outline-offset: 3px; }
+
+
+/* Estilo para el encabezado del sitio, estableciendo el color de fondo y agregando un borde inferior */
+.site-header {
+  background: var(--superficie);
+  border-bottom: 1px solid var(--linea);
+}
+
+/* Estilo para los elementos internos del encabezado, contenedor y pie de página, estableciendo un ancho máximo y centrando el contenido horizontalmente */
+.header-inner, .container, .footer-inner {
+  width: min(1120px, calc(100% - 2rem));
+  margin-inline: auto;
+}
+
+/* Estilo para los elementos internos del encabezado, estableciendo un diseño flexible, alineando los elementos verticalmente, distribuyendo el espacio entre ellos y agregando un espacio entre los elementos */
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  min-height: 76px;
+}
+
+/* Estilo para la marca del sitio, estableciendo el color, tamaño de fuente, peso de fuente y eliminando la decoración del texto */
+.brand {
+  color: var(--tinta);
+  font-size: 1.1rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+/* Estilo para el texto dentro de la marca del sitio, estableciendo el color al color de la marca */
+.brand span { color: var(--marca); }
+
+/* Estilo para la barra de navegación, estableciendo un diseño flexible, permitiendo que los elementos se ajusten a múltiples líneas, agregando un espacio entre los elementos, eliminando márgenes y relleno, y eliminando la lista de estilo */
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+/* Estilo para los enlaces dentro de la barra de navegación, estableciendo el peso de la fuente y eliminando la decoración del texto */
+nav a { font-weight: 650; text-decoration: none; }
+/* Estilo para los enlaces dentro de la barra de navegación que representan la página actual, estableciendo el color al color de la tinta, subrayando el texto y ajustando la posición del subrayado */
+nav a[aria-current="page"] { color: var(--tinta); text-decoration: underline; text-underline-offset: 5px; }
+
+/* Estilo para el enlace de salto, estableciendo la posición, color de fondo, color de texto, relleno, radio del borde y ocultando el elemento fuera de la pantalla */
+main { min-height: 65vh; }
+/* Estilo para el contenedor, agregando relleno vertical */
+.container { padding-block: 3rem; }
+/* Estilo para el hero, agregando relleno vertical y horizontal, estableciendo una imagen de fondo centrada y ajustada al tamaño del contenedor, y estableciendo el color del texto */
+.hero {
+  padding: clamp(3rem, 8vw, 6rem) max(1rem, calc((100% - 1120px) / 2));
+  background:url(../assets/dls_web_06feb_1280x720_huawei_china_eeuu.jpg) center / cover no-repeat;
+  color: #fff;
+}
+/* Estilo para el contenido del hero, estableciendo un ancho máximo */
+.hero-content { max-width: 750px; }
+/* Estilo para el encabezado dentro del hero, estableciendo un ancho máximo, margen inferior, tamaño de fuente adaptable y altura de línea */
+.hero h1 { max-width: 18ch; margin: 0 0 1rem; font-size: clamp(2.4rem, 6vw, 4.5rem); line-height: 1.08; }
+/* Estilo para el párrafo dentro del hero, estableciendo un ancho máximo, color de texto, y tamaño de fuente */
+.hero p { max-width: 65ch; color: #e6efff; font-size: 1.15rem; }
+
+/* Estilo para los elementos con clase "eyebrow"/ceja, estableciendo el color, tamaño de fuente, peso de fuente, espaciado entre letras y transformando el texto a mayúsculas */
+.eyebrow { color: #3983eb; font-size: 0.82rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; }
+
+/* Estilo para los botones, estableciendo la visualización en línea, margen superior, relleno, borde, radio del borde, color de fondo, color de texto, peso de fuente y eliminando la decoración del texto */
+.button {
+  display: inline-block;
+  margin-top: 0.75rem;
+  padding: 0.8rem 1.15rem;
+  border: 2px solid transparent;
+  border-radius: 0.45rem;
+  background: var(--marca);
+  color: #fff;
+  font-weight: 750;
+  text-decoration: none;
+}
+
+/* Estilo para los párrafos dentro de la sección de introducción, estableciendo el tamaño de fuente */
+div.introduccion p{
+  font-size: 24px;
+}
+
+/* Estilo para los botones al pasar el cursor sobre ellos, cambiando el color de fondo al color de la marca más oscuro y el color del texto a blanco */
+.button:hover { background: var(--marca-oscura); color: #fff; }
+.hero .button { background: #fff; color: var(--marca-oscura); }
+.hero .button:hover { background: #e8f0ff; }
+
+/* Estilo para los encabezados h1, h2 y h3, estableciendo la altura de línea, tamaño de fuente y margen superior */
+h1, h2, h3 { line-height: 1.2; }
+h1 { font-size: clamp(2rem, 5vw, 3.25rem); }
+h2 { margin-top: 0; font-size: clamp(1.5rem, 3vw, 2.1rem); }
+
+/* Estilo para los párrafos con la clase "lead", estableciendo un ancho máximo y color de texto */
+.lead {
+    font-size: large;
+    max-width: 70ch;
+    color:#1e1e1e;
+ }
+
+/* Estilo para los párrafos, estableciendo el margen superior y el color del texto */
+.card-grid, .gallery-grid, .fact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+/* Estilo para los elementos de clases "tarjeta", "panel" y "hecho", estableciendo el relleno, borde, radio del borde, color de fondo y sombra de la caja */
+.card, .panel, .fact {
+  padding: 1.4rem;
+  border: 1px solid var(--linea);
+  border-radius: 0.75rem;
+  background: var(--superficie);
+  box-shadow: var(--sombra);
+}
+
+/* Estilo para los encabezados h3 dentro de las tarjetas, estableciendo el margen superior y fuente del texto */
+.card h3 { margin-top: 0; }
+.card a { font-weight: 700; }
+
+/* Estilo para los párrafos con clase "hechos clave", estableciendo el margen superior y fuente del texto */
+.key-facts { margin-top: 2rem; padding: 1.5rem; border-left: 5px solid var(--acento); background: #fff; }
+/* Estilo para las listas dentro de los hechos clave, eliminando el margen inferior */
+.key-facts ul { margin-bottom: 0; }
+
+/* Estilo para los elementos con la clase "prosa", estableciendo un ancho máximo y margen superior */
+.prose { max-width: 78ch; }
+.prose h2 { margin-top: 2.25rem; }
+
+/* Estilo para los elementos con la clase "llamada", estableciendo el margen vertical, relleno, borde izquierdo y color de fondo */
+.callout { margin-block: 1.5rem; padding: 1rem 1.25rem; border-left: 4px solid var(--marca); background: #eaf1fc; }
+
+/* Estilo para los elementos con la clase "envoltura de tabla", estableciendo el desbordamiento horizontal y margen vertical */
+.table-wrap { overflow-x: auto; margin-block: 1.5rem; }
+
+/* Estilo para las tablas, estableciendo el ancho, colapso de bordes y color de fondo */
+table { width: 100%; border-collapse: collapse; background: #fff; }
+
+/* Estilo para los elementos de la tabla, estableciendo el relleno, borde, alineación del texto y alineación vertical */
+caption { padding: 0.75rem; font-weight: 750; text-align: left; }
+
+/* Estilo para los encabezados y celdas de la tabla, estableciendo el relleno, borde, alineación del texto y alineación vertical */
+th, td { padding: 0.85rem; border: 1px solid var(--linea); text-align: left; vertical-align: top; }
+th { background: #eaf1fc; }
+
+/* Estilo para los elementos de la galería, estableciendo un diseño de cuadrícula, espacio entre elementos y columnas de cuadrícula */
+.gallery-grid { display: grid; gap: 5px; grid-template-columns: repeat(3, 400px); }
+.gallery-grid figure {
+    width: 80%;
+    margin: 0;
+    overflow: hidden;
+    border-radius: 0.75rem;
+    background: #fff; 
+    box-shadow: var(--sombra);
+    border: 3px solid transparent;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+  }  
+  
+  .gallery-grid figure:hover{
+    border-color: #d84a32;
+  } 
+  
+.gallery-grid img { 
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+   }
+
+
+
+/* Estilo para los subtítulos de las imágenes en la galería */
+figcaption { padding: 0.8rem 1rem; color: var(--apagado); }
+
+/* Estilo para los formularios, estableciendo un ancho máximo y margen vertical */
+form { max-width: 720px; }
+.form-field { margin-block: 1rem; }
+
+/* Estilo para las etiquetas de los formularios, estableciendo la visualización en bloque, margen inferior y peso de fuente */
+label { display: block; margin-bottom: 0.35rem; font-weight: 700; }
+
+/* Estilo para los campos de entrada, selección y área de texto, estableciendo el ancho, relleno, borde, radio del borde, color de fondo, color de texto y fuente */
+input, select, textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #8b98aa;
+  border-radius: 0.35rem;
+  background: #fff;
+  color: var(--tinta);
+  font: inherit;
+}
+
+/* Estilo para las areas de texto, estableciendo la altura mínima y permitiendo el cambio de tamaño vertical */
+textarea { min-height: 9rem; resize: vertical; }
+
+/* Estilo para los elementos con las clases "ayuda" y "muted", estableciendo el color del texto y tamaño de fuente */
+.help, .muted { color: var(--apagado); font-size: 0.92rem; }
+
+/* Estilo para los elementos de la página de error */
+.error-page { padding-block: 5rem; text-align: center; }
+.error-code { color: var(--acento); font-size: clamp(4rem, 12vw, 8rem); font-weight: 900; line-height: 1; } /* Estilo para el código de error, estableciendo el color, tamaño de fuente adaptable, peso de fuente y altura de línea */
+
+
+/* Estilo para el pie de página / footer de las páginas, estableciendo el relleno vertical, borde superior y color de fondo */
+.site-footer { padding-block: 1.5rem; border-top: 1px solid var(--linea); background: #fff; }
+/* Estilo para los elementos internos del pie de página, estableciendo un diseño flexible, permitiendo que los elementos se ajusten a múltiples líneas, distribuyendo el espacio entre ellos, agregando un espacio entre los elementos y estableciendo el color del texto */
+.footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; color: var(--apagado); }
+.site-footer p { margin: 0; } /* Estilo para los párrafos dentro del pie de página, eliminando el margen */
+
+/* Estilos responsive para pantallas con un ancho máximo de 760px, ajustando la disposición de los elementos del encabezado, la barra de navegación y las cuadrículas de tarjetas, hechos y galerías */
+@media (max-width: 760px) {
+  .header-inner { align-items: flex-start; flex-direction: column; padding-block: 1rem; }
+  nav ul { gap: 0.35rem 0.85rem; }
+  .card-grid, .fact-grid, .gallery-grid { grid-template-columns: 1fr; }
+  .container { padding-block: 2rem; }
+}
+
+/* Estilos para usuarios que prefieren reducir el movimiento, desactivando el comportamiento de desplazamiento suave */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+/* Estilo para el contenedor de la imagen, asegurando que se muestre como un bloque y centrando la imagen horizontalmente */
+#imagen{
+  display: block;
+  margin: auto;
+}
+
+/* Estilo para la sección de videos, centrando el texto y estableciendo el tamaño de fuente y color de los párrafos dentro de la sección */
+.videos{
+  text-align:center;
+  p{
+    font-size: small;
+    color: #526174;
+  }
+}
+
+.parrafo-inicio{
+  font-size: x-large;
+}
+
+/* MAPA CONCEPTUAL */
+
+.mapa-conceptual {
+    max-width: 1400px;
+    margin: auto;
+}
+
+.mapa-encabezado {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.mapa-encabezado h1 {
+    font-size: clamp(1.7rem, 4vw, 2.5rem);
+}
+
+.mapa-raiz {
+    max-width: 550px;
+    margin: auto;
+    padding: 1.3rem;
+    border-radius: 12px;
+    background: #292929;
+    color: white;
+    text-align: center;
+}
+
+.mapa-raiz h2 {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.mapa-raiz p {
+    margin-bottom: 0;
+}
+
+.relacion {
+    text-align: center;
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--apagado);
+    margin: 1rem 0;
+}
+
+.mapa-columnas {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+    align-items: start;
+}
+
+.rama {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    padding: 1rem;
+    border-radius: 12px;
+    background: white;
+}
+
+.concepto-principal {
+    padding: 1rem;
+    border: 2px solid;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.concepto-principal h2 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.concepto-principal p {
+    margin-bottom: 0;
+    font-size: 0.9rem;
+}
+
+.concepto {
+    border: 2px solid;
+    border-radius: 10px;
+    padding: 1rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.concepto summary {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.concepto p {
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
+
+.concepto:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--sombra);
+}
+
+/* Colores de las tres ramas */
+
+.ciencia .concepto-principal,
+.ciencia .concepto {
+    border-color: #6254d9;
+    background: #efedff;
+    color: #29235f;
+}
+
+.tecnologia .concepto-principal,
+.tecnologia .concepto {
+    border-color: #00866b;
+    background: #e4f6f0;
+    color: #104c40;
+}
+
+.sociedad .concepto-principal,
+.sociedad .concepto {
+    border-color: #c64b2b;
+    background: #fff0e9;
+    color: #692b19;
+}
+
+.conclusion {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    border-radius: 12px;
+    background: #292929;
+    color: white;
+    text-align: center;
+}
+
+.conclusion h2 {
+    margin-top: 0;
+}
+
+.conclusion p {
+    margin-bottom: 0;
+}
+
+/* Adaptación a celulares */
+
+@media (max-width: 760px) {
+    .mapa-columnas {
+        grid-template-columns: 1fr;
+    }
+
+    .mapa-raiz {
+        width: 100%;
+    }
+}
+
+.contenido-investigacion {
+    margin-top: 4rem;
+}
+
+.apartado {
+    margin-bottom: 2.5rem;
+}
+
+.apartado h2 {
+    margin-bottom: 1rem;
+}
+
+.espacio{
+  margin-top: 4rem;
+}
+
+.gallery-grid2 { 
+  display: grid; gap: 5px; 
+  grid-template-columns: repeat(1, 400px);
+  justify-content: center;
+}
+.gallery-grid2 figure {
+    width: 120%;
+    margin: 0;
+    overflow: hidden;
+    border-radius: 0.75rem;
+    background: #fff; 
+    box-shadow: var(--sombra);
+    border: 3px solid transparent;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+  }  
+  
+  .gallery-grid2 figure:hover{
+    border-color: #d84a32;
+  } 
+  
+.gallery-grid2 img { 
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+   }
