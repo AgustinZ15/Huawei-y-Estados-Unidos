@@ -602,3 +602,7 @@ textarea { min-height: 9rem; resize: vertical; }
         min-width: auto;
     }
 }
+
+.color-titulo{
+    color: #10366f;
+}
