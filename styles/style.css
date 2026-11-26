@@ -487,3 +487,116 @@ textarea { min-height: 9rem; resize: vertical; }
     aspect-ratio: 16 / 10;
     object-fit: cover;
    }
+
+.cronologia {
+    margin-top: 4rem;
+}
+
+.cronologia-encabezado {
+    margin-bottom: 2rem;
+}
+
+.linea-tiempo {
+    position: relative;
+    max-width: 850px;
+    margin: 2rem auto;
+    padding-left: 2rem;
+}
+
+/* Línea vertical */
+
+.linea-tiempo::before {
+    content: "";
+    position: absolute;
+    left: 0.45rem;
+    top: 0.5rem;
+    bottom: 0.5rem;
+    width: 3px;
+    background: var(--linea);
+}
+
+/* Cada acontecimiento */
+
+.evento-tiempo {
+    position: relative;
+    margin-bottom: 1.25rem;
+    padding: 1rem;
+    border: 1px solid var(--linea);
+    border-radius: 0.6rem;
+    background: var(--superficie);
+    box-shadow: var(--sombra);
+}
+
+/* Círculo sobre la línea */
+
+.evento-tiempo::before {
+    content: "";
+    position: absolute;
+    left: -1.85rem;
+    top: 1.2rem;
+    width: 0.8rem;
+    height: 0.8rem;
+    border: 3px solid var(--marca);
+    border-radius: 50%;
+    background: var(--superficie);
+}
+
+/* Parte que se puede seleccionar */
+
+.evento-tiempo summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    list-style: none;
+}
+
+.evento-tiempo summary::-webkit-details-marker {
+    display: none;
+}
+
+.fecha-evento {
+    color: var(--marca);
+    min-width: 145px;
+}
+
+.titulo-evento {
+    flex: 1;
+}
+
+/* Símbolo para abrir y cerrar */
+
+.evento-tiempo summary::after {
+    content: "+";
+    font-size: 1.5rem;
+    color: var(--marca);
+}
+
+.evento-tiempo[open] summary::after {
+    content: "−";
+}
+
+/* Información desplegada */
+
+.evento-tiempo p {
+    margin-bottom: 0;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--linea);
+}
+
+/* Adaptación a pantallas pequeñas */
+
+@media (max-width: 600px) {
+    .evento-tiempo summary {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.4rem;
+    }
+
+    .fecha-evento {
+        min-width: auto;
+    }
+}
