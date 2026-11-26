@@ -606,3 +606,7 @@ textarea { min-height: 9rem; resize: vertical; }
 .color-titulo{
     color: #10366f;
 }
+
+.extra{
+    color: black;
+}
