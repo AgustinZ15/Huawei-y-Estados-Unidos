@@ -13,7 +13,9 @@
 } 
 
 /* Aplicar box-sizing: border-box a todos los elementos para un mejor control del tamaño y el espaciado */
-* { box-sizing: border-box; } 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 
 /* Hacer que el desplazamiento sea suave al hacer clic en enlaces internos */
 html { scroll-behavior: smooth; } 
